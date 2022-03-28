@@ -10,11 +10,15 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 public class SqlSessionBean {
 /*
  * Mybatais 라이브러리의 SqlSession 클래스가 SQL 실행메소드를 제공합니다.
- * SqlSesseionFactoryBuilder --> SqlSessionFactory 객체 생성 
- * --> SqlSession 객체 생성  : 클래스 의존관계
- * SqlSession 객체로 db sql을 실행합니다.
+ * SqlSesseionFactoryBuilder --> SqlSessionFactory 객체 생성
+ *  --> dao 클래스에서 SqlSession 객체 생성  : 클래스 의존관계
+ * 	SqlSession 객체로 db sql을 실행합니다.
  * 
  * https://mybatis.org/mybatis-3/ko/getting-started.html 참고로 작성합니다.
+ * String resource = "org/mybatis/example/mybatis-config.xml";
+   InputStream inputStream = Resources.getResourceAsStream(resource);
+   SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+ * 
  */
 	public static SqlSessionFactory sqlSessionFactory;
 	static {   //변수들이 static 영역에 저장됩니다.
