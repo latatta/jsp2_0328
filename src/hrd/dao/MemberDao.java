@@ -23,18 +23,22 @@ public class MemberDao {
 		return result;
 	}
 	
-	public void insert(Member vo) {
+	// insert(), update(), delete() 메소드는 member.xml에 resultType 없이
+	// 		실행결과 반영된 행의 개수를 리턴합니다.
+	public int insert(Member vo) {
 		SqlSession mapper = factory.openSession();
-		mapper.insert("insert", vo);	// 리턴 안받는 메소드
+		int result = mapper.insert("insert", vo);
 		mapper.commit();		// mybatis Sqlsession 객체는 기본 동작이 auto commit이 아닙니다.
 		mapper.close();
+		return result;
 	}
 	
-	public void update(Member vo) {
+	public int update(Member vo) {
 		SqlSession mapper = factory.openSession();
-		mapper.update("update", vo);
+		int result = mapper.update("update", vo);
 		mapper.commit();
 		mapper.close();
+		return result;
 	}
 	
 	public Member selectOne(int custno) {

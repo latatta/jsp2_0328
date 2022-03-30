@@ -13,6 +13,7 @@
 		INSERT INTO IDEV.MEMBER_TBL_02
 		(CUSTNO, CUSTNAME, PHONE, ADDRESS, JOINDATE, GRADE, CITY)
 		VALUES(#{custNo}, #{custName}, #{phone}, #{addr}, sysdate, #{grade}, #{city})
+		<!-- 파라미터 타입이 클래스일 때 #{}는 프로퍼티 이름을 정확히 대소문자 구분하여 작성하세요. -->
 	</insert>
 	
 	<update id="update" parameterType="hrd.vo.Member">
