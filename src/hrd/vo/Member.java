@@ -19,7 +19,7 @@ public class Member {
 	private int custNo;
 	private String custName;
 	private String phone;
-	private String addr;
+	private String address;
 	private Date joinDate;
 	private String grade;
 	private String city; 
