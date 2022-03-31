@@ -9,6 +9,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 
 import hrd.vo.Member;
 import mybatis.SqlSessionBean;
+import test.vo.User;
 
 public class MemberDao {
 	SqlSessionFactory factory = SqlSessionBean.getSessionFactory();
@@ -90,4 +91,19 @@ public class MemberDao {
 		
 		return result;
 	}
+	
+	// 	<!-- 로그인 테스트용으로 다른 테이블의 sql 실행합니다. -->
+	public User login(String email, String password) {
+		SqlSession mapper = factory.openSession();
+		
+		Map<String, String> map = new HashMap<>();
+		map.put("email", email);
+		map.put("password", password);
+		
+		User result = mapper.selectOne("login", map);
+		mapper.close();
+		
+		return result;
+	}
+	
 }

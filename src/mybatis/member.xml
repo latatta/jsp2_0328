@@ -59,7 +59,11 @@
 		from dual
 	</select>
 
-
+	<!-- 로그인 테스트용으로 다른 테이블의 sql 실행합니다. -->
+	<select id="login" parameterType="java.util.Map" resultType="test.vo.User">
+		select mem_idx, name, email from tbl_member
+		where email=#{email} and password=#{password}
+	</select>
 
 
 </mapper>
