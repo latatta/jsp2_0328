@@ -49,8 +49,10 @@
 		cookie.setMaxAge(3*60);		// 3분, response.addCookie보다 앞에서 실행해야함.
 		response.addCookie(cookie);
 		
+		
+		
 		// 같은이름의 애트리뷰트에 대해 덮어쓰기
-		//	response.sendRedirect("4_voteResult.jsp");
+		// response.sendRedirect("4_voteResult.jsp");
 		response.sendRedirect("5_resultView.jsp");
 	
 	} else {
